@@ -1,0 +1,279 @@
+blip, t
+music, GuitarTune
+color, lime:
+For the best experience, please play this trial in Mozilla Firefox.
+
+// Define variables that need to be set early... maybe move these later?
+varDef, currentpc, 1, docName, Dr. Palmstroem, emaName, Ms. Skye?
+wait, 1
+
+blip, t
+speed, 1.33
+color, lime
+choice, Pre-load backgrounds, Loader, Skip Pre-Loader, SkipLoader:
+Would you like to pre-load backgrounds? (recommended)
+
+// Nothing to preload in v6... yet. Maybe fades?
+anc, Loader
+place, Loader
+
+music
+null:
+Loaded.
+
+// Ask about tutorial prompts and set them if necessary.
+anc, SkipLoader
+music
+blip, t
+speed, 1.33
+place, black
+color, lime:
+This trial uses some unusual gameplay elements. Tutorials are included for these.
+
+blip, t
+speed, 1.33
+choice, Tutorial On, OnTutorial, Tutorial Off, SkipTutorial
+color, lime:
+Turn on tutorial prompts? (Recommended for first-time players.)
+
+anc, OnTutorial
+varDef, tutorials, 1
+wait, 1
+
+anc, SkipTutorial
+music
+blip, t
+speed, 1.33
+choice, Watch the intro, WatchIntro, Skip the Intro, SkipIntro
+color, lime:
+Watch the intro?
+
+// ********************************INTRO SEQUENCE****************************
+// *********** The movement of Earth.
+anc, WatchIntro
+place, IntroScreen
+music, Planets
+wait, 1000
+
+hideObj, IntroScreen, Cover
+popup, FadeIn
+wait, 1000
+
+wait, 2000
+
+speed, 0.33
+wait, 3000
+blip, f
+speakerName, Ema
+null:
+Mr. Gavin...
+
+speed, 0.53
+blip, m
+wait, 3000
+speakerName, Klavier
+null:
+Yes, Miss Skye?
+
+speed, 0.67
+wait, 6500
+blip, f
+speakerName, Ema
+null:
+How far would you guess we travel in a day?[#p40] Around the sun, I mean.
+
+speed, 0.6
+blip, m
+wait, 8000
+speakerName, Klavier
+null:
+Ah, I was never an astronomer.[#p40] A hundred thousand kilometers, perhaps?
+
+speed, 0.6
+wait, 7000
+blip, f
+speakerName, Ema
+null:
+Millions. [#p40]It takes the Earth only nine hours to go a million kilometers!
+
+speed, 0.47
+blip, m
+wait, 6000
+speakerName, Klavier
+null:
+I see.[#p20] And your point would be?
+
+speed, 0.53
+wait, 8000
+blip, f
+speakerName, Ema
+null:
+By the time we wake up tomorrow... all of this will be millions of miles behind us.
+
+speed, 0.53
+wait, 4000
+blip, f
+speakerName, Ema
+null:
+It's a nice thought, isn't it?
+
+speed, 0.6
+blip, m
+wait, 6000
+speakerName, Klavier
+null:
+I take it you've found it in your heart to forgive me, then?
+
+speed, 0.6
+wait, 3000
+blip, f
+speakerName, Ema
+null:
+Not on your life, fop.
+
+popup, FadeOut
+wait, 1300
+
+hideObj, IntroScreen, IntroPlanet
+wait, 1
+
+// ******** The ratchet **********
+speed, 0.67
+wait, 4000
+blip, m
+speakerName, Klavier
+color, skyblue
+revObj, IntroScreen, Cover
+null:
+(And the world spins on regardless.)
+
+revObj, IntroScreen, Ratchet
+wait, 10
+
+hideObj, IntroScreen, Cover
+popup, FadeIn
+wait, 1300
+
+wait, 1000
+
+speed, 0.67
+wait, 7000
+blip, m
+speakerName, Klavier
+color, skyblue
+null:
+(Eight planets orbit the sun, predictable as a clock's gears. Or the Great American Songbook.)
+
+speed, 0.67
+wait, 5000
+blip, m
+speakerName, Klavier
+color, skyblue
+null:
+(I used to think I had more freedom than that.)
+
+speed, 0.67
+wait, 5000
+blip, m
+speakerName, Klavier
+color, skyblue
+null:
+(Surely, in a world where I could become Ema Skye's defense attorney...)
+
+speed, 0.67
+wait, 4000
+blip, m
+speakerName, Klavier
+color, skyblue
+null:
+(...anything must be possible.)
+
+speed, 0.67
+wait, 5000
+blip, m
+speakerName, Klavier
+color, skyblue
+null:
+(But perhaps this tragedy was inevitable from the start.)
+
+music
+popup, FadeOut
+wait, 1300
+
+hideObj, IntroScreen, Ratchet
+wait, 1000
+
+music, BruisedHeart
+revObj, IntroScreen, Chapter1
+wait, 10
+
+hideObj, IntroScreen, Cover
+popup, FadeIn
+
+popup, FadeOut
+wait, 1300
+
+hideObj, IntroScreen, Chapter1
+music
+wait, 1000
+
+color, lime
+blip, t
+speed, 0.53
+null:
+(Over 4,000,000 kilometers earlier...)
+
+// ********************************THE GAME PROPER****************************
+// ********** Ema's opening monologue **************
+anc, SkipIntro
+place, HospitalNight
+wait, 1000
+
+hideObj, HospitalNight, Cover
+popup, FadeIn
+wait, 2000
+
+speed, 0.67
+blip, t
+color, lime
+null:
+June 16, 7:58 PM
+Saturn Technologies HQ
+(Formerly Hope Hospital)
+
+popup, FadeOut
+wait, 1300
+
+hideObj, HospitalNight, HospitalBG
+wait, 10
+
+place, HallNight
+wait, 10
+
+hideObj, HallNight, Cover
+popup, FadeIn
+wait, 1300
+
+speed, 0.8
+blip, f
+color, skyblue
+revEv, Ema, WalkieTalkie
+speakerName, Ema
+null:
+(Well, looks like a quiet evening.
+Again.)
+
+speed, 0.8
+blip, f
+color, skyblue
+speakerName, Ema
+null:
+(Bored, bored, bored.
+I wish something would happen.)
+
+speed, 0.67
+blip, f
+speakerName, Ema
+sound, Anger
+null:
+Argh!

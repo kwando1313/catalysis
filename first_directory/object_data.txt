@@ -1,2 +1,132 @@
-Popup {
+Profile Ema {
+long: Ema Skye
+short: Ema
+description: Me. I'm going to be a forensic investigator, if this job doesn't bore me to death first.
+metadata: Age: 20
+: Gender: Female
+icon: http://i246.photobucket.com/albums/gg94/ferdielance/gkema_zpse16e2a14.png
+voice: female
+prefix: Ema
+hidden: true
+}
+
+Evidence WalkieTalkie {
+name: Ema's Walkie-Talkie
+description: My walkie-talkie. I always carry it with me on patrol.
+metadata: Type: Other
+: One of my possessions.
+hidden: True
+base: transceiver
+}
+
+Sound Anger {
+base: anger
+}
+
+Sound Waaah {
+base: waaah
+}
+
+Music Planets {
+name: Planets
+path: http://www.mediafire.com/download/olnpihpm7a4d8f9/neptofix.mp3
+}
+
+Music GuitarTune {
+name: someRandomName
+path: http://www.mediafire.com/download/yavv59xxvdqv2b4/pleasewait.mp3
+}
+
+Music BruisedHeart {
+name: BruisedHeart
+path: http://www.mediafire.com/download/w8hj2ti075yj0io/bruised.mp3
+}
+
+Popup FadeIn {
+name: FadeIn
+path: http://www.ferdielance.com/fadein1000.svg
+}
+
+Popup FadeOut {
+name: FadeOut
+path: http://www.ferdielance.com/fadeout1000.svg
+}
+
+Place Loader {
+name: someRandomName
+path: http://i246.photobucket.com/albums/gg94/ferdielance/ratchet_zps4ad05626.gif
+}
+
+Loader foreground {
+name: Spinner
+path: http://i246.photobucket.com/albums/gg94/ferdielance/loadingscreen-1.gif
+}
+
+Place IntroScreen {
+name: IntroScreen
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
+}
+
+IntroScreen background {
+name: IntroPlanet
+path: http://i246.photobucket.com/albums/gg94/ferdielance/earthspin_zps533ad09d.gif
+}
+
+IntroScreen background {
+name: Ratchet
+path: http://i246.photobucket.com/albums/gg94/ferdielance/ratchet_zps4ad05626.gif
+hidden: true
+}
+
+IntroScreen background {
+name: Chapter1
+path: http://i246.photobucket.com/albums/gg94/ferdielance/chaponeart_zps2a44a273.png
+hidden: true
+}
+
+IntroScreen foreground {
+name: Cover
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
+}
+
+Place HospitalNight {
+name: HospitalNight
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
+}
+
+HospitalNight background {
+name: HospitalBG
+path: http://i246.photobucket.com/albums/gg94/ferdielance/lab-est-night.png
+}
+
+HospitalNight foreground {
+name: Cover
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
+}
+
+Place HallNight {
+name: HallNight
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
+}
+
+HallNight background {
+name: HallBGNight
+path: http://i246.photobucket.com/albums/gg94/ferdielance/hospitalnightlit.png
+}
+
+HallNight foreground {
+name: HallBGDark
+path: http://i246.photobucket.com/albums/gg94/ferdielance/hosp-lights-out_zpsbd6a6560.png
+hidden: true
+}
+
+HallNight foreground {
+name: HallAntifreeze
+path: http://i246.photobucket.com/albums/gg94/ferdielance/antifreeze_zpskt2xjbn3.png
+hidden: true
+}
+
+HallNight foreground {
+name: Cover
+path: http://i246.photobucket.com/albums/gg94/ferdielance/blackscreen_zpsnrttsxtn.png
 }
