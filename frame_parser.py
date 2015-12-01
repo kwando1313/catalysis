@@ -60,18 +60,20 @@ class FrameParser(object):
         it. If the line ends with a colon, expect dialogue. Otherwise, expect a
         new command and do some data valdiation.'''
         def func(match):
-            r'''Function that handles escaping of comma-space and newline. Due
-            to expression syntax and the dialogue command, \ escape may not
-            be safe.'''
+            r'''Function that handles escaping of comma-space, curly brackets
+            and newline. Syntactical "{" are matched with "$", while "}" are 
+            removed. Due to expression syntax and the dialogue command, 
+            \ escape may not be safe.'''
             match = match.group(1)
             # Match \\ so they don't interfere with matching.
             # It may not be safe to treat them as an escaped \ yet.
-            if re.compile("[^, ]{").match(match) or re.compile("}[^, :]").match(match):
-              return match
-            return {", ": "\n", r"\\": r"\\", "\\, ": ", ", "\\{":"{", "\\}":"}", " {":"\n$", "{":"$", "}":""}[match]
+            return {", ": "\n", r"\\": r"\\", "\\, ": ", ",
+                    "\\{":"{", "\\}":"}", "{":"$", "}":""}[match]
 
-        # First, split at a comma-space, preserving escape characters.
-        command_list = re.sub(r"(\\\\|\\, |, |\\{|\\}|[^, ]{| ?{|}[^, :]|})", func, line).split("\n")
+        # Split at a comma-space and preserves escape characters,
+        # but replaces non-escaped "{" and "}" with "$" and "" respectively.
+        command_list = re.sub(r"(\\\\|\\, |, |\\{|\\}|{|})",
+                              func, line).split("\n")
         # Seek a terminal colon, being wary of the possibility of escape.
         colon_match = re.search(r"(\\)*:$", command_list[-1])
         start_dialogue = False
@@ -127,10 +129,6 @@ class FrameParser(object):
         func_name = re.sub(
             "([A-Z]+)", lambda match: "_" + match.group(1).lower(), lead_word)
         # The if checks if it is, in fact, a frame function.
-        print("Commands are:")
-        print(command_list)
-        print("Func name is:")
-        print(func_name)
         if func_name in frame_library.method_names:
             func = getattr(self.executor, func_name)
             self.validate_context(func)
@@ -148,10 +146,7 @@ class FrameParser(object):
                 raise Invalid("bad arg num", lead_word)
 
         # Neither macros not characters should have been fragmented.
-        print("Command List:")
-        print(command_list)
         if command_list:
-            print("Sadface, I have commands")
             raise Invalid("unk line")
         # Assume it's a macro.
         try:
